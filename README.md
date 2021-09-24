@@ -78,7 +78,7 @@ wget https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
 2. Install repo
 
 ```
-sudo dnf install mysql80-community-release-el7-1.noarch.rpm -y
+sudo yum localinstall mysql80-community-release-el7-1.noarch.rpm -y
 ```
 
 3. Cek Versi Mysql
