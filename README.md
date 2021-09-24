@@ -290,3 +290,27 @@ Passw0rd = Fred123$
 cluster=dba.getCluster()
 ```
 
+8. Untuk Command melihat versi mysql
+
+- Lewat Command Shell MySQL
+
+```
+mysqlsh --sql root@localhost
+```
+atau dengan masuk cli langsung
+
+```
+mysqlsh -u root -p
+```
+
+lalu ketikan di command line MySQL
+```
+SHOW VARIABLES LIKE "%version%";
+```
+
+- Tanpa leway Command Shell MySQL
+
+```
+mysql -v
+```
+
