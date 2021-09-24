@@ -1,5 +1,5 @@
 # Install-MySQL-Cluster
-Tutorial Install MySQL CLuster Dengan 3 Server di CentOS 7
+Tutorial Install MySQL CLuster Dengan 3 Server di CentOS/RHEL 8
 
 # Persiapan 	:
 
@@ -13,10 +13,10 @@ Sedia 3 Server centos 7
 # House Skiping 	:
 Lakukan langkah yang sama di ke tiga server
 
-1. Update Centos 7 supaya mendapat package baru
+1. Update Centos/RHEL 8 supaya mendapat package baru
 
 ```
-yum update -y
+sudo dnf update -y
 ```
 2. edit selinux
 
@@ -78,7 +78,7 @@ wget https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
 2. Install repo
 
 ```
-yum localinstall mysql80-community-release-el7-1.noarch.rpm -y
+sudo dnf install mysql80-community-release-el7-1.noarch.rpm -y
 ```
 
 3. Cek Versi Mysql
