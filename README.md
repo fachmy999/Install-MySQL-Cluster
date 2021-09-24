@@ -47,14 +47,24 @@ vim /etc/hosts
 ```
 
 6. Tambahkan ip sebagai berikut di semua server
-	-> 192.168.1.21		mysql1
-	-> 192.168.1.23 	mysql2
-	-> 192.168.1.24 	mysql3
+
+```
+192.168.1.21	mysql1
+192.168.1.23 	mysql2
+192.168.1.24 	mysql3
+```
   
 7. test koneksi
-	-> Ping 	192.168.1.21		mysql1
-	-> Ping 	192.168.1.23 		mysql2
-	-> Ping 	192.168.1.24 		mysql3	
+
+```
+Ping 192.168.1.21 mysql1
+```
+```
+Ping 192.168.1.23 mysql2
+```
+```
+Ping 192.168.1.24 mysql3	
+```
 
 # Install MySQL 8.0 
 Lakukan langkah yang sama di ke tiga server
@@ -140,48 +150,50 @@ reset master;
 \js
 ```
 2. Configurasi instance by user biasa jangan root (kandidat innodb clusternya)
-	mysql1
-	-> dba.configureInstance('clsteradmin@mysql1') (isi password user biasa jangan root)
-	-> save password enter
-	-> Do you want to perform the required configuration changes? [y/n] : y
-	-> Do you want to restart the instance configuration it? [y/n] : y
 
-	mysql2
-	-> dba.configureInstance('clsteradmin@mysql1') (isi password user biasa jangan root)
-	-> save password ketik "y" lalu enter
-	-> Do you want to perform the required configuration changes? [y/n] : y
-	-> Do you want to restart the instance configuration it? [y/n] : y
+2.1. mysql1
+- dba.configureInstance('clsteradmin@mysql1') (isi password user biasa jangan root)
+- password enter
+- Do you want to perform the required configuration changes? [y/n] : y
+- Do you want to restart the instance configuration it? [y/n] : y
 
-	mysql3
-	-> dba.configureInstance('clsteradmin@mysql1') (isi password user biasa jangan root)
-	-> save password ketik "y" lalu enter
-	-> Do you want to perform the required configuration changes? [y/n] : y
-	-> Do you want to restart the instance configuration it? [y/n] : y
+2.2. mysql2
+- dba.configureInstance('clsteradmin@mysql1') (isi password user biasa jangan root)
+- save password ketik "y" lalu enter
+- Do you want to perform the required configuration changes? [y/n] : y
+- Do you want to restart the instance configuration it? [y/n] : y
+
+2.3. mysql3
+- dba.configureInstance('clsteradmin@mysql1') (isi password user biasa jangan root)
+- save password ketik "y" lalu enter
+- Do you want to perform the required configuration changes? [y/n] : y
+- Do you want to restart the instance configuration it? [y/n] : y
 
 3. lalu keluar untuk configurasi user biasa custer InnoDB nya
-masuk ke mysql shell clusteradmin
+A. masuk ke mysql shell clusteradmin
 
 ```
 mysqlsh clusteradmin@mysql1
 ```
-membuat nama cluster innodb di user biasa (clusteradmin)
+B. membuat nama cluster innodb di user biasa (clusteradmin)
 
 ```
 cluster=dba.createCluster('lefredCluster')	lefred = nama clusternya
 ```
-cek status cluster
+C. cek status cluster
 
 ```
 cluster.status()
 ```
-menambahkan instance mysql mesin ke 2 ke 3 dan sterusnya
-menambah instance ke 2
+D. menambahkan instance mysql mesin ke 2 ke 3 dan sterusnya
+
+E. menambah instance ke 2
 
 ```
 cluster.addInstance('clusteradmin@mysql2')
 ```
 
-menambah instance ke 3
+F. menambah instance ke 3
 
 ```
 cluster.addInstance('clusteradmin@mysql3')
