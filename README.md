@@ -140,7 +140,7 @@ reset master;
 
 # Lakukan Konfigurasi Hanya di Master saja
 
-1. masuk ke mysql shell JS (Javascript)
+# 1. masuk ke mysql shell JS (Javascript)
 
 ```
 \js
@@ -185,40 +185,43 @@ dba.configureInstance('clusteradmin@mysql3')
 ```
 /q
 ```
+3. Konfigurasi Cluster InnoDB MySQL
 
-3.1 masuk ke mysql shell clusteradmin Master
+- masuk ke mysql shell clusteradmin Master
 
 ```
 mysqlsh clusteradmin@mysql1
 ```
 
-3.2 membuat nama cluster innodb di user biasa (clusteradmin)
+- Membuat nama cluster innodb di user biasa (clusteradmin)
 
 ```
 cluster=dba.createCluster('lefredCluster')	
 ```
 Catatan : lefred = nama clusternya
 
-3.3. cek status cluster di DB Master
+- cek status cluster di DB Master
 
 ```
 cluster.status()
 ```
-3.4. menambahkan instance mysql mesin ke 2 ke 3 dan sterusnya
+- Menambahkan instance mysql mesin ke 2 ke 3 dan sterusnya
 
-3.4.1. menambah instance ke 2
+4. Menambah jumlah instance pada CLuster InnoDB MySQL
+
+- Menambah instance ke 2
 
 ```
 cluster.addInstance('clusteradmin@mysql2')
 ```
 
-3.4.2. menambah instance ke 3
+- Menambah instance ke 3
 
 ```
 cluster.addInstance('clusteradmin@mysql3')
 ```
 
-4. Terakhir cek status cluster InnoDB
+5. Terakhir cek status cluster InnoDB
 
 ```
 cluster.status()
@@ -226,7 +229,7 @@ cluster.status()
 
 Catatan R/W instance bisa CRUD kalau R/O instance hanya Melihat tanpa bisa mengubah database
 
-5. selesai
+selesai
 
 
 -------------------------------------------------------------------------------------------------------------------------------
