@@ -4,9 +4,9 @@ Tutorial Install MySQL CLuster Dengan 3 Server di CentOS 7
 # Persiapan 	:
 
 Sedia 3 Server centos 7
-	-> 192.168.1.21		mysql1 (nama hostname)
-	-> 192.168.1.23 	mysql2 (nama hostname)
-	-> 192.168.1.24 	mysql3 (nama hostname)
+- 192.168.1.21	mysql1 (nama hostname)
+- 192.168.1.23 	mysql2 (nama hostname)
+- 192.168.1.24 	mysql3 (nama hostname)
   
 --------------------------------------------------
 
