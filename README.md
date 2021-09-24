@@ -1,7 +1,7 @@
 # Install-MySQL-Cluster
 Tutorial Install MySQL CLuster Dengan 3 Server di CentOS/RHEL 8
 
-![Mysql](https://www.mysql.com/common/logos/logo-mysql-170x115.png)![redhat](https://static.redhat.com/libs/redhat/brand-assets/latest/corp/logo.svg)
+![Mysql](https://www.mysql.com/common/logos/logo-mysql-170x115.png)![redhat](https://www.redhat.com/cms/managed-files/styles/xlarge/s3/Band-color.png?itok=9qQ6BmPL)
 
 # Persiapan 	:
 
