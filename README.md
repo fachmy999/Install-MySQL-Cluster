@@ -143,63 +143,82 @@ reset master;
 1. masuk ke mysql shell JS (Javascript)
 
 ```
+\js
+```
+Catatan untuk masuk ke Command Line MySQL adalah sebagai berikut :
+
+```
 \sql
 ```
 
-```
-\js
-```
 2. Configurasi instance by user biasa jangan root (kandidat innodb clusternya)
 
 2.1. mysql1
-- dba.configureInstance('clsteradmin@mysql1') (isi password user biasa jangan root)
+- isi password user biasa
+```
+dba.configureInstance('clusteradmin@mysql1')
+```
 - password enter
 - Do you want to perform the required configuration changes? [y/n] : y
 - Do you want to restart the instance configuration it? [y/n] : y
 
 2.2. mysql2
-- dba.configureInstance('clsteradmin@mysql1') (isi password user biasa jangan root)
+- isi password user biasa
+```
+dba.configureInstance('clusteradmin@mysql2')
+```
 - save password ketik "y" lalu enter
 - Do you want to perform the required configuration changes? [y/n] : y
 - Do you want to restart the instance configuration it? [y/n] : y
 
 2.3. mysql3
-- dba.configureInstance('clsteradmin@mysql1') (isi password user biasa jangan root)
+- isi password user biasa jangan root
+```
+dba.configureInstance('clusteradmin@mysql3') 
+```
 - save password ketik "y" lalu enter
 - Do you want to perform the required configuration changes? [y/n] : y
 - Do you want to restart the instance configuration it? [y/n] : y
 
 3. lalu keluar untuk configurasi user biasa custer InnoDB nya
-A. masuk ke mysql shell clusteradmin
+
+```
+/q
+```
+
+3.1 masuk ke mysql shell clusteradmin Master
 
 ```
 mysqlsh clusteradmin@mysql1
 ```
-B. membuat nama cluster innodb di user biasa (clusteradmin)
+
+3.2 membuat nama cluster innodb di user biasa (clusteradmin)
 
 ```
-cluster=dba.createCluster('lefredCluster')	lefred = nama clusternya
+cluster=dba.createCluster('lefredCluster')	
 ```
-C. cek status cluster
+Catatan : lefred = nama clusternya
+
+3.3. cek status cluster di DB Master
 
 ```
 cluster.status()
 ```
-D. menambahkan instance mysql mesin ke 2 ke 3 dan sterusnya
+3.4. menambahkan instance mysql mesin ke 2 ke 3 dan sterusnya
 
-E. menambah instance ke 2
+3.4.1. menambah instance ke 2
 
 ```
 cluster.addInstance('clusteradmin@mysql2')
 ```
 
-F. menambah instance ke 3
+3.4.2. menambah instance ke 3
 
 ```
 cluster.addInstance('clusteradmin@mysql3')
 ```
 
-4. cek status cluster InnoDB
+4. Terakhir cek status cluster InnoDB
 
 ```
 cluster.status()
