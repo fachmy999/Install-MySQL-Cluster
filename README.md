@@ -164,7 +164,7 @@ SET GLOBAL group_replication_ip_allowlist="192.168.1.0/24";
 2. Configurasi instance by user biasa jangan root (kandidat innodb clusternya)
 
 2.1. mysql1
-- isi password user biasa
+- isi password user kamu
 ```
 dba.configureInstance('cluster_user_kamun@mysql1')
 ```
@@ -173,7 +173,7 @@ dba.configureInstance('cluster_user_kamun@mysql1')
 - Do you want to restart the instance configuration it? [y/n] : y
 
 2.2. mysql2
-- isi password user biasa
+- isi password user kamu
 ```
 dba.configureInstance('cluster_user_kamu@mysql2')
 ```
@@ -182,7 +182,7 @@ dba.configureInstance('cluster_user_kamu@mysql2')
 - Do you want to restart the instance configuration it? [y/n] : y
 
 2.3. mysql3
-- isi password user biasa jangan root
+- isi password user kamu
 ```
 dba.configureInstance('cluster_user_kamu@mysql3') 
 ```
@@ -203,7 +203,7 @@ dba.configureInstance('cluster_user_kamu@mysql3')
 mysqlsh cluster_user_kamu@mysql1
 ```
 
-- Membuat nama cluster innodb di user biasa (clusteradmin)
+- Membuat nama cluster innodb di user biasa
 
 ```
 cluster=dba.createCluster('nama_cluster_kamu')	
