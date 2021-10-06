@@ -164,7 +164,7 @@ SET GLOBAL group_replication_ip_allowlist="192.168.1.0/24";
 2. Configurasi instance by user biasa jangan root (kandidat innodb clusternya)
 
 2.1. mysql1
-- isi password user kamu
+- isi password user kamu di command shell Javascript dengan ketik perintah \js, lalu tambahkan instance pertamamu :
 ```
 dba.configureInstance('cluster_user_kamun@mysql1')
 ```
@@ -173,7 +173,7 @@ dba.configureInstance('cluster_user_kamun@mysql1')
 - Do you want to restart the instance configuration it? [y/n] : y
 
 2.2. mysql2
-- isi password user kamu
+- ambahkan instance keduamu :
 ```
 dba.configureInstance('cluster_user_kamu@mysql2')
 ```
@@ -182,7 +182,7 @@ dba.configureInstance('cluster_user_kamu@mysql2')
 - Do you want to restart the instance configuration it? [y/n] : y
 
 2.3. mysql3
-- isi password user kamu
+- ambahkan instance ketigamu :
 ```
 dba.configureInstance('cluster_user_kamu@mysql3') 
 ```
@@ -190,14 +190,14 @@ dba.configureInstance('cluster_user_kamu@mysql3')
 - Do you want to perform the required configuration changes? [y/n] : y
 - Do you want to restart the instance configuration it? [y/n] : y
 
-3. lalu keluar untuk configurasi user biasa custer InnoDB nya
+3. lalu jika selesai , keluar dari Shell Javascript untuk configurasi user biasa di cluster InnoDB nya
 
 ```
 /q
 ```
 3. Konfigurasi Cluster InnoDB MySQL
 
-- masuk ke mysql shell clusteradmin Master
+- masuk ke mysql shell cluster_user_kamu Master
 
 ```
 mysqlsh cluster_user_kamu@mysql1
@@ -208,13 +208,13 @@ mysqlsh cluster_user_kamu@mysql1
 ```
 cluster=dba.createCluster('nama_cluster_kamu')	
 ```
-Catatan : lefred = nama clusternya
 
 - cek status cluster di DB Master
 
 ```
 cluster.status()
 ```
+
 - Menambahkan instance mysql mesin ke 2 ke 3 dan sterusnya
 
 4. Menambah jumlah instance pada CLuster InnoDB MySQL
@@ -237,7 +237,7 @@ cluster.addInstance('cluster_user_kamu@mysql3')
 cluster.status()
 ```
 
-Catatan R/W instance bisa CRUD kalau R/O instance hanya Melihat tanpa bisa mengubah database
+Catatan R/W instance bisa CRUD kalau R/O instance hanya Melihat tanpa bisa mengubah isi database dari instance master
 
 selesai
 
