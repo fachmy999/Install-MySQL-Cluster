@@ -142,15 +142,23 @@ reset master;
 
 # Lakukan Konfigurasi Hanya di Master saja
 
-# 1. masuk ke mysql shell JS (Javascript)
+1. Cara masuk MySQL Shell di dalam Shell
+
+1.1. masuk ke mysql shell JS (Javascript)
 
 ```
 \js
 ```
-Catatan untuk masuk ke Command Line MySQL adalah sebagai berikut :
+1.2. Catatan untuk masuk ke Command Line MySQL adalah sebagai berikut :
 
 ```
 \sql
+```
+1.3. Tambahkan Ip Allow List untuk anda Konfigurasi Cluster InnoDB di Mode SQL Shell:
+
+
+```
+SET GLOBAL group_replication_ip_allowlist="192.168.1.0/24";
 ```
 
 2. Configurasi instance by user biasa jangan root (kandidat innodb clusternya)
