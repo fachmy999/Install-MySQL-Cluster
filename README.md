@@ -121,18 +121,18 @@ mysqlsh --sql root@localhost
 5. ganti password root
 
 ```
-set password='Complicate3$';
+set password='password_root_kamu';
 ```
 
-6. membuat user clusteradmin
+6. membuat user untuk cluster InnoDB
 
 ```
-create user 'clusteradmin' identified by 'Fred123$';
+create user 'cluster_user_kamu' identified by 'password_kamu';
 ```
-7. permision user clusteradmin
+7. Berikan permision user cluster kamu
 
 ```
-grant all privileges on *.* to 'clusteradmin'@'%' with grant option;
+grant all privileges on *.* to 'cluster_user_kamu'@'%' with grant option;
 ```
 8. reset master
 
@@ -166,7 +166,7 @@ SET GLOBAL group_replication_ip_allowlist="192.168.1.0/24";
 2.1. mysql1
 - isi password user biasa
 ```
-dba.configureInstance('clusteradmin@mysql1')
+dba.configureInstance('cluster_user_kamun@mysql1')
 ```
 - password enter
 - Do you want to perform the required configuration changes? [y/n] : y
@@ -175,7 +175,7 @@ dba.configureInstance('clusteradmin@mysql1')
 2.2. mysql2
 - isi password user biasa
 ```
-dba.configureInstance('clusteradmin@mysql2')
+dba.configureInstance('cluster_user_kamu@mysql2')
 ```
 - save password ketik "y" lalu enter
 - Do you want to perform the required configuration changes? [y/n] : y
@@ -184,7 +184,7 @@ dba.configureInstance('clusteradmin@mysql2')
 2.3. mysql3
 - isi password user biasa jangan root
 ```
-dba.configureInstance('clusteradmin@mysql3') 
+dba.configureInstance('cluster_user_kamu@mysql3') 
 ```
 - save password ketik "y" lalu enter
 - Do you want to perform the required configuration changes? [y/n] : y
@@ -200,13 +200,13 @@ dba.configureInstance('clusteradmin@mysql3')
 - masuk ke mysql shell clusteradmin Master
 
 ```
-mysqlsh clusteradmin@mysql1
+mysqlsh cluster_user_kamu@mysql1
 ```
 
 - Membuat nama cluster innodb di user biasa (clusteradmin)
 
 ```
-cluster=dba.createCluster('lefredCluster')	
+cluster=dba.createCluster('nama_cluster_kamu')	
 ```
 Catatan : lefred = nama clusternya
 
@@ -222,13 +222,13 @@ cluster.status()
 - Menambah instance ke 2
 
 ```
-cluster.addInstance('clusteradmin@mysql2')
+cluster.addInstance('cluster_user_kamu@mysql2')
 ```
 
 - Menambah instance ke 3
 
 ```
-cluster.addInstance('clusteradmin@mysql3')
+cluster.addInstance('cluster_user_kamu@mysql3')
 ```
 
 5. Terakhir cek status cluster InnoDB
@@ -257,7 +257,7 @@ cluster.switchToMultyPrimaryMode()
 ```
 mysql -u root -p
 ```
-Password = Complicate3$
+Password = password_root_kamu
 
 ```
 select * from performance_schema.replication_group_members;
@@ -266,7 +266,7 @@ select * from performance_schema.replication_group_members;
 3. Untuk Command Import Database adalah
 
 ```
-mysql -u root -p unhan_library < unhan_library.sql
+mysql -u root -p nama_database_kamu < database_kamu.sql
 ```
 
 4. Untuk Command masuk mysql shell root adalah
@@ -274,14 +274,14 @@ mysql -u root -p unhan_library < unhan_library.sql
 ```
 mysqlsh --sql root@localhost
 ```
-password = Complicate3$
+password = Password_root_kamu
 
 5. Untuk Command masuk mysql shell user biasa
 
 ```
-mysqlsh clusteradmin@mysql1
+mysqlsh cluster_user_kamu@mysql1
 ```
-Password = Fred123$
+Password = Password_user_kamu
 
 ```
 cluster.status()
@@ -290,9 +290,9 @@ cluster.status()
 6. Untuk Command masuk mysql user biasa
 
 ```
-mysql -u clusteradmin -p
+mysql -u cluster_user_kamu -p
 ```
-Passw0rd = Fred123$
+Passw0rd = Password_user_kamu
 
 7. Untuk Command masuk cluster InnoDB
 
