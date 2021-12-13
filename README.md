@@ -323,4 +323,13 @@ SHOW VARIABLES LIKE "%version%";
 ```
 mysql -v
 ```
+8. Untuk Command mengganti primary instance mysql
 
+- Login terlebih dahulu lewat Command Shell MySQL JS
+```
+mysqlsh clusteradmin@mysql1
+```
+- lalu ketikan di command line MySQL JS untuk mengganti primary instance tersebut
+```
+cluster.setPrimaryInstance('mysql1:3306')
+```
