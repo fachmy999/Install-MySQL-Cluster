@@ -323,7 +323,7 @@ SHOW VARIABLES LIKE "%version%";
 ```
 mysql -v
 ```
-8. Untuk Command mengganti primary instance mysql
+9. Untuk Command mengganti primary instance mysql
 
 - Login terlebih dahulu lewat Command Shell MySQL JS
 ```
